@@ -1,83 +1,83 @@
-# Assignment 3 — ответы
+# Assignment 3 — Answers
 
-## Диапазоны страниц
+## Page ranges
 
-- **Price, стр. 250–385** → Chapter 5 "Building Your Own Types with OOP" (231–292, Exercises на стр. 289 — попадают) полностью, Chapter 6 "Implementing Interfaces and Inheriting Classes" (293–366, Exercises на стр. 364 — попадают) полностью, плюс начало Chapter 7 (367–385), но его упражнения на стр. 412 — **не попадают** в диапазон.
-- **Yagur, стр. 104–127** → на этот раз без сюрпризов: это конец главы **"Error Handling"** (Exercises на стр. 105–108 — целиком попадают в начало диапазона) и вся глава **"Higher-Order Functions and Delegates"** (109–126, Exercises на стр. 123 — тоже попадают). В курсовой нумерации (без вводной главы) это соответствует "Chapter 5" — совпадает с тем, что вы написали.
+- **Price, pp. 250–385** → Chapter 5 "Building Your Own Types with Object-Oriented Programming" (231–292, Exercises on p. 289 — included) in full, Chapter 6 "Implementing Interfaces and Inheriting Classes" (293–366, Exercises on p. 364 — included) in full, plus the start of Chapter 7 (367–385), but its exercises on p. 412 are **not** included in the range.
+- **Yagur, pp. 104–127** → this time, no surprises: this is the end of the **"Error Handling"** chapter (Exercises on pp. 105–108 — fall entirely within the start of the range) and the whole of the **"Higher-Order Functions and Delegates"** chapter (109–126, Exercises on p. 123 — also included). In the course's numbering (which skips the intro chapter), this corresponds to "Chapter 5" — matching what you wrote.
 
 ---
 
-## Книга 1 (Price) — Chapter 5 "Building Your Own Types with Object-Oriented Programming"
+## Book 1 (Price) — Chapter 5 "Building Your Own Types with Object-Oriented Programming"
 
 ### Exercise 5.1 — Test your knowledge
 
-1. **7 модификаторов доступа** — `public` (виден везде), `private` (только внутри своего типа), `protected` (свой тип + производные), `internal` (только внутри сборки), `protected internal` (свой тип/производные ИЛИ внутри сборки — объединение), `private protected` (свой тип/производные И внутри сборки — пересечение), `file` (только внутри текущего файла, C# 11+).
-2. **static vs const vs readonly** — `static` — член принадлежит типу, а не экземпляру; `const` — значение известно на этапе компиляции и никогда не меняется (неявно static); `readonly` — значение можно задать только в конструкторе (или при объявлении), после этого оно не меняется, но, в отличие от `const`, может вычисляться в runtime.
-3. **Что делает конструктор** — инициализирует новый экземпляр типа (задаёт начальные значения полей/свойств) в момент создания объекта через `new`.
-4. **Атрибут `[Flags]`** — сообщает, что значения enum — это комбинация битовых флагов, которые можно объединять через `|`; также улучшает вывод `ToString()` (покажет все объединённые флаги через запятую, а не просто число).
-5. **`partial`** — позволяет разделить объявление класса/структуры/интерфейса на несколько файлов (например, отделить сгенерированный код от написанного вручную); компилятор собирает их в один тип.
-6. **Кортеж (tuple)** — лёгкая структура для группировки нескольких значений без создания отдельного класса, например `(string Name, int Age) person = ("Alice", 30);`.
-7. **Ключевое слово `record`** — создаёт неизменяемый (по умолчанию) ссылочный тип с автоматически сгенерированными сравнением по значению (`Equals`/`GetHashCode`), `ToString()` и поддержкой `with`-выражений для создания копий с изменёнными полями.
-8. **Перегрузка (overloading)** — несколько методов с одним именем, но разными списками параметров (по количеству или типу) в одном типе.
-9. **`public List<Person> Children = new();` vs `public List<Person> Children => new();`** — первое — это поле/автосвойство с полем, инициализированным один раз при создании объекта (список создаётся один раз, дальше переиспользуется); второе — это expression-bodied свойство (по сути метод-геттер), которое создаёт **новый** пустой список при **каждом** обращении к `Children` — то есть данные, добавленные в предыдущий раз, теряются.
-10. **Необязательный параметр метода** — задать ему значение по умолчанию: `void Foo(int x, int y = 10)`.
+1. **The seven access modifiers** — `public` (visible everywhere), `private` (only within its own type), `protected` (own type + derived types), `internal` (only within the assembly), `protected internal` (own type/derived types OR within the assembly — union), `private protected` (own type/derived types AND within the assembly — intersection), `file` (only within the current file, C# 11+).
+2. **static vs const vs readonly** — `static` — the member belongs to the type, not an instance; `const` — the value is known at compile time and never changes (implicitly static); `readonly` — the value can only be set in the constructor (or at declaration) and cannot change afterward, but unlike `const`, it can be computed at runtime.
+3. **What a constructor does** — initializes a new instance of a type (sets initial values for fields/properties) at the moment the object is created with `new`.
+4. **The `[Flags]` attribute** — indicates that an enum's values are a combination of bit flags that can be combined with `|`; it also improves the output of `ToString()` (it will list all combined flags separated by commas, instead of just a number).
+5. **`partial`** — lets you split a class/struct/interface declaration across multiple files (for example, to separate generated code from hand-written code); the compiler merges them into one type.
+6. **A tuple** — a lightweight structure for grouping several values without creating a separate class, e.g. `(string Name, int Age) person = ("Alice", 30);`.
+7. **The `record` keyword** — creates an (by default) immutable reference type with automatically generated value-based equality (`Equals`/`GetHashCode`), `ToString()`, and support for `with`-expressions to create copies with modified fields.
+8. **Overloading** — several methods with the same name but different parameter lists (by count or type) within the same type.
+9. **`public List<Person> Children = new();` vs `public List<Person> Children => new();`** — the first is a field/auto-property backed by a field initialized once when the object is created (the list is created once and reused); the second is an expression-bodied property (effectively a getter method) that creates a **new**, empty list on **every** access to `Children` — meaning anything previously added is lost.
+10. **Making a method parameter optional** — give it a default value: `void Foo(int x, int y = 10)`.
 
 ### Exercise 5.2 — Practice with access modifiers
 
-Разобрано в коде (`OopExercise.cs`): класс `Car` без модификатора — неявно `internal`, поэтому невидим из другого проекта; метод `Start()` помечен `internal` — тоже невидим снаружи сборки. Компилятор в консольном приложении выдаст ошибки уровня доступа на оба места. Исправление — сделать класс и нужные снаружи члены `public`.
+Covered in the code (`OopExercise.cs`): the `Car` class has no modifier, so it's implicitly `internal` and therefore invisible from another project; the `Start()` method is marked `internal`, so it's also invisible outside the assembly. The compiler in the console app project would raise accessibility errors on both. The fix is to make the class and whichever members the console app needs `public`.
 
 ### Exercise 5.3 — Explore
 
-Ссылка на `book-links.md#chapter-5` в репозитории автора — доп. материалы по ООП.
+Link to `book-links.md#chapter-5` in the author's repository — extra material on OOP.
 
 ---
 
-## Книга 1 (Price) — Chapter 6 "Implementing Interfaces and Inheriting Classes"
+## Book 1 (Price) — Chapter 6 "Implementing Interfaces and Inheriting Classes"
 
 ### Exercise 6.1 — Test your knowledge
 
-1. **Делегат** — тип, описывающий сигнатуру метода, позволяющий передавать методы как значения (в переменных, параметрах).
-2. **Событие** — член на основе делегата, реализующий паттерн "издатель-подписчик": позволяет типу уведомлять подписчиков о произошедшем действии.
-3. **Базовый и производный классы** — производный класс наследует члены базового через `:`; доступ к базовым членам — напрямую (если они `public`/`protected`) или через ключевое слово `base`.
-4. **`is` vs `as`** — `is` проверяет совместимость типа и возвращает `bool` (можно сразу с паттерном: `if (x is Cat cat)`); `as` пытается привести к типу и возвращает `null`, если не получилось (вместо исключения).
-5. **`sealed`** — запрещает наследоваться от класса или дальше переопределять метод.
-6. **Запрет создания через `new`** — сделать конструктор `private` (или класс `static`/`abstract`, в зависимости от цели).
-7. **Разрешить переопределение члена** — модификатор `virtual` (в базовом классе), переопределяется через `override`.
-8. **Деструктор vs Deconstruct** — деструктор (`~ClassName()`) вызывается сборщиком мусора перед освобождением памяти объекта; `Deconstruct`-метод — это способ "разложить" объект на составляющие через паттерн `var (a, b) = obj;`, никак не связан со сборкой мусора.
-9. **Сигнатуры конструкторов исключений** — четыре стандартных: без параметров; с `string message`; с `string message, Exception innerException`; и protected-конструктор сериализации `(SerializationInfo info, StreamingContext context)`.
-10. **Extension method** — статический метод в статическом классе, первый параметр которого помечен `this`, что позволяет вызывать его так, будто это метод существующего типа: `public static bool IsValid(this string s) => ...`.
+1. **Delegate** — a type describing a method's signature, letting you pass methods around as values (in variables, as parameters).
+2. **Event** — a delegate-based member implementing the publisher-subscriber pattern: it lets a type notify subscribers that something has happened.
+3. **Base and derived classes** — a derived class inherits the base class's members via `:`; it can access base members directly (if `public`/`protected`) or through the `base` keyword.
+4. **`is` vs `as`** — `is` checks type compatibility and returns a `bool` (can be combined with pattern matching: `if (x is Cat cat)`); `as` attempts a cast and returns `null` if it fails (instead of throwing an exception).
+5. **`sealed`** — prevents a class from being derived from further, or a method from being overridden any further.
+6. **Preventing instantiation via `new`** — make the constructor `private` (or make the class `static`/`abstract`, depending on the goal).
+7. **Allowing a member to be overridden** — the `virtual` modifier (on the base class); overridden with `override`.
+8. **Destructor vs Deconstruct** — a destructor (`~ClassName()`) is invoked by the garbage collector before an object's memory is reclaimed; a `Deconstruct` method is a way to "unpack" an object into its parts via the pattern `var (a, b) = obj;` — it has nothing to do with garbage collection.
+9. **Constructor signatures every exception should have** — four standard ones: parameterless; with `string message`; with `string message, Exception innerException`; and the protected serialization constructor `(SerializationInfo info, StreamingContext context)`.
+10. **Extension method** — a static method in a static class whose first parameter is marked with `this`, letting you call it as if it were a method of an existing type: `public static bool IsValid(this string s) => ...`.
 
 ### Exercise 6.2 — Inheritance hierarchy (Shape/Rectangle/Square/Circle)
 
-Т.к. упражнение явно просит **новое консольное приложение с именем `Ch06Ex02Inheritance`**, оно вынесено отдельным проектом (см. файлы ниже), с точным набором классов и выводом, указанным в условии.
+Since the exercise explicitly asks for a **new console app named `Ch06Ex02Inheritance`**, it's provided as a separate project (see the files below), with the exact set of classes and output specified in the exercise.
 
-### Exercise 6.3–6.4 — Explore
+### Exercises 6.3–6.4 — Explore
 
-- **6.3** — читать онлайн-раздел про анализаторы кода (`ch06-writing-better-code.md` в репозитории автора).
-- **6.4** — ссылка на `book-links.md#chapter-6`.
-
----
-
-## Книга 2 (Yagur) — "Error Handling" — Exercises 1–3
-
-Готовый код в `ErrorHandlingExercise.cs` (свой пример — оплата заказа вместо игры про башни):
-
-- **Exercise 1** — метод оплаты картой, вместо `bool`, возвращает свой мини-`Result<TValue, TError>` с конкретной причиной ошибки (`InsufficientFunds`, `CardDeclined`, `CardExpired`).
-- **Exercise 2** — цепочка "разобрать → провалидировать → обработать оплату" переписана через Railway-Oriented Programming (`.Bind(...)`), вместо вложенных `if`.
-- **Exercise 3** — retry-механизм: `TryChargeWithRetries` пытается вызвать "капризный" платёжный шлюз заданное число раз, прежде чем вернуть неуспешный `Result`.
-
-## Книга 2 (Yagur) — "Higher-Order Functions and Delegates" — Exercises 1–3
-
-Готовый код в `HigherOrderFunctionsExercise.cs` (свой пример — сотрудники вместо башен/врагов):
-
-- **Exercise 1** — сортировка списка через собственный делегат `CompareEmployees`, переданный как parameter.
-- **Exercise 2** — метод, принимающий `Action<Employee>` и применяющий его к каждому элементу списка (протестировано с двумя разными Action).
-- **Exercise 3** — метод, принимающий `Func<Employee, Employee, Employee>` для сравнения двух сотрудников и возврата "более подходящего".
+- **6.3** — read the online-only section about code analyzers (`ch06-writing-better-code.md` in the author's repository).
+- **6.4** — link to `book-links.md#chapter-6`.
 
 ---
 
-## Структура файлов
+## Book 2 (Yagur) — "Error Handling" — Exercises 1–3
 
-- **`Assignment3`** — единый консольный проект с меню: `OopExercise.cs` (5.1–5.2), `ErrorHandlingExercise.cs`, `HigherOrderFunctionsExercise.cs`.
-- **`Ch06Ex02Inheritance`** — отдельный консольный проект под Exercise 6.2, как и требует условие (точное имя проекта).
-- **`Assignment3.sln`** — откройте этот файл в Visual Studio, чтобы сразу подтянулись оба проекта, каждый в своей изоляции (без повторения ошибки "Only one compilation unit can have top-level statements").
+Working code in `ErrorHandlingExercise.cs` (original example — order payment processing, instead of the book's tower-defense game):
+
+- **Exercise 1** — the card-charging method, instead of returning `bool`, returns a small custom `Result<TValue, TError>` carrying a specific failure reason (`InsufficientFunds`, `CardDeclined`, `CardExpired`).
+- **Exercise 2** — the "parse → validate → process payment" chain is rewritten using Railway-Oriented Programming (`.Bind(...)`) instead of nested `if` statements.
+- **Exercise 3** — a retry mechanism: `TryChargeWithRetries` calls a "flaky" payment gateway a given number of times before returning a failed `Result`.
+
+## Book 2 (Yagur) — "Higher-Order Functions and Delegates" — Exercises 1–3
+
+Working code in `HigherOrderFunctionsExercise.cs` (original example — employees, instead of towers/enemies):
+
+- **Exercise 1** — sorting a list using a custom delegate `CompareEmployees`, passed in as a parameter.
+- **Exercise 2** — a method taking an `Action<Employee>` and applying it to every item in a list (tested with two different Actions).
+- **Exercise 3** — a method taking a `Func<Employee, Employee, Employee>` to compare two employees and return the "more suitable" one.
+
+---
+
+## File structure
+
+- **`Assignment3`** — a single console project with a menu: `OopExercise.cs` (5.1–5.2), `ErrorHandlingExercise.cs`, `HigherOrderFunctionsExercise.cs`.
+- **`Ch06Ex02Inheritance`** — a separate console project for Exercise 6.2, as the exercise requires (exact project name).
+- **`Assignment3.sln`** — open this file in Visual Studio so both projects load correctly, each in its own isolation (avoiding the earlier "Only one compilation unit can have top-level statements" error).

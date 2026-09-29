@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -10,17 +10,37 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Debug|x64.Build.0 = Debug|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Debug|x86.Build.0 = Debug|Any CPU
 		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Release|x64.ActiveCfg = Release|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Release|x64.Build.0 = Release|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B3104CB-A4D0-4839-8AA6-8F22DAEAFBA8}.Release|x86.Build.0 = Release|Any CPU
 		{56398A2C-166C-4F60-BB16-26D28C91C020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56398A2C-166C-4F60-BB16-26D28C91C020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Debug|x64.Build.0 = Debug|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Debug|x86.Build.0 = Debug|Any CPU
 		{56398A2C-166C-4F60-BB16-26D28C91C020}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56398A2C-166C-4F60-BB16-26D28C91C020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Release|x64.ActiveCfg = Release|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Release|x64.Build.0 = Release|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Release|x86.ActiveCfg = Release|Any CPU
+		{56398A2C-166C-4F60-BB16-26D28C91C020}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
